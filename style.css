@@ -542,92 +542,89 @@ footer {
     cursor: pointer;
 }
 
-/* Print Styles */
-@media print {
-    body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background: none !important;
-        color: #000 !important; /* Ensure black text for print */
+/* --- MOBILE OPTIMIZATIONS (VERY SMALL SCREENS) --- */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Smaller heading for very small screens */
     }
 
-    body > *:not(#summary-section) { /* Hide all direct children of body except summary-section */
-        display: none !important;
-        visibility: hidden !important; /* Ensure hiddenness */
+    header h2 {
+        font-size: 1.1em;
     }
 
-    #summary-section {
-        display: block !important;
-        visibility: visible !important;
-        position: static !important; /* Critical: Ensure it's in normal flow for printing */
-        width: auto !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        background: none !important;
-        border: none !important;
+    main {
+        margin: 10px auto;
+        padding: 0 10px; /* Reduce horizontal padding */
     }
 
-    #summary-section .accordion-header {
-        display: none !important; /* Hide the accordion header in print */
+    .content-block {
+        padding: 15px; /* Smaller padding for content blocks */
     }
 
-    #summary-section .accordion-content {
-        max-height: none !important; /* Ensure content is fully expanded */
-        overflow: visible !important;
-        padding: 0 !important; /* Remove original padding */
+    h3 {
+        font-size: 1.2em; /* Smaller subheadings */
+        margin-bottom: 10px;
     }
 
-    #summary-content {
-        display: block !important; /* Ensure summary content is visible */
-        visibility: visible !important;
-        width: 100% !important; /* Ensure it takes full print width */
-        margin: 0 !important;
-        padding: 20mm !important; /* Add generous print margins */
-        box-sizing: border-box !important;
-        background-color: #fff !important; /* Ensure white background */
+    h4 {
+        font-size: 1em; /* Smaller sub-subheadings */
+        margin-bottom: 10px;
+        padding-right: 25px; /* Adjust padding for button */
     }
 
-    #summary-content #savePdfButton {
-        display: none !important; /* Hide the button in print */
+    .key-terms li {
+        font-size: 0.8em;
+        padding: 6px 10px;
     }
 
-    /* Ensure text justification for print */
-    #summary-content p, 
-    #summary-content ul li {
-        text-align: justify !important;
-        font-size: 11pt !important; /* Adjust font size for print readability */
-        line-height: 1.4 !important; /* Adjust line height for print readability */
-        color: #000 !important;
+    .image-gallery {
+        grid-template-columns: 1fr; /* Stack images vertically on small screens */
+        gap: 15px;
     }
 
-    #summary-content h4, #summary-content h3 {
-        text-align: left !important;
-        font-size: 14pt !important; /* Adjust heading size for print */
-        color: #000 !important; /* Ensure black color for print */
-        margin-top: 10pt !important;
-        margin-bottom: 8pt !important;
-        border-bottom: 1px solid #000 !important; /* Ensure border is visible */
-        padding-bottom: 3pt !important;
+    .image-gallery figcaption {
+        font-size: 0.8em;
     }
 
-    #summary-content strong {
-        color: #000 !important; /* Ensure black color for strong text */
+    .info-button {
+        width: 18px; /* Slightly smaller info button */
+        height: 18px;
+        font-size: 0.7em;
     }
 
-    #summary-content ul {
-        list-style-type: disc !important; /* Ensure bullets show up */
-        margin-left: 20mm !important; /* Indent lists */
-        padding-left: 0 !important;
+    /* Analysis button adjustments */
+    .analysis-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+        margin-bottom: 10px;
     }
 
-    #summary-content .summary-footer-text {
-        text-align: center !important;
-        font-size: 8pt !important; /* Smaller font for print footer */
-        color: #666 !important; /* Lighter color for print footer */
-        margin-top: 15mm !important;
-        border-top: 0.5px solid #ccc !important;
-        padding-top: 5mm !important;
+    .timeline-event {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .flip-card-container {
+        height: 250px; /* Slightly reduce flip card height */
+        margin: 20px auto;
+    }
+
+    .flip-card-front h5, .flip-card-back h5 {
+        font-size: 1.2em;
+    }
+
+    .flip-card-front p, .flip-card-back p {
+        font-size: 0.85em;
+    }
+
+    .options button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .modal-content {
+        margin: 10% auto; /* Adjust modal position */
+        width: 90%; /* Larger modal width on small screens */
+        padding: 15px;
     }
 }
