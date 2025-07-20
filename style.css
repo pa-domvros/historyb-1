@@ -14,13 +14,14 @@ body {
     padding: 0;
     background: var(--off-white);
     color: var(--text-color);
+    text-align: justify; /* Κάνει justify όλα τα κείμενα στο body */
 }
 
 header {
     background: var(--dark-teal); /* Χρησιμοποιούμε σκούρο τιρκουάζ */
     color: var(--off-white);
     padding: 1rem 0;
-    text-align: center;
+    text-align: center; /* Εξαίρεση: το header παραμένει κεντραρισμένο */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -47,6 +48,8 @@ h3, h4 {
     border-bottom: 2px solid var(--gold); /* Χρυσό */
     padding-bottom: 5px;
     margin-bottom: 15px;
+    position: relative; /* Για να μπορούν τα παιδιά με absolute να τοποθετηθούν σωστά */
+    text-align: left; /* Εξαίρεση: οι επικεφαλίδες παραμένουν αριστερά */
 }
 
 .key-terms ul {
@@ -55,6 +58,7 @@ h3, h4 {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    text-align: left; /* Εξαίρεση: οι λίστες παραμένουν αριστερά */
 }
 
 .key-terms li {
@@ -145,7 +149,7 @@ h3, h4 {
     color: var(--text-color);
     padding: 12px 15px;
     width: 100%;
-    text-align: left;
+    text-align: left; /* Εξαίρεση: το header του accordion παραμένει αριστερά */
     border: none;
     outline: none;
     cursor: pointer;
@@ -199,7 +203,7 @@ h3, h4 {
     border: 1px solid var(--pale-teal);
     border-radius: 8px;
     background-color: #fcfcfc;
-    text-align: center;
+    text-align: center; /* Εξαίρεση: οι εικόνες και λεζάντες κεντραρισμένες */
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
@@ -208,9 +212,10 @@ h3, h4 {
     color: #666;
     margin-top: 10px;
     position: relative; /* Needed for positioning the info-button */
+    text-align: center; /* Εξαίρεση: οι λεζάντες κεντραρισμένες */
 }
 
-/* New Info Button (i icon) */
+/* General Info Button (i icon) - for figcaption */
 .info-button {
     background: var(--gold);
     color: var(--off-white);
@@ -223,18 +228,46 @@ h3, h4 {
     line-height: 1;
     text-align: center;
     cursor: pointer;
-    position: absolute; /* Position relative to figcaption */
-    top: 5px; /* Adjust as needed */
-    right: 5px; /* Adjust as needed */
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     transition: background-color 0.2s ease;
+    /* Common positioning for small 'i' buttons */
+    position: absolute;
+    display: flex; /* Ensure content 'i' is centered within button */
+    align-items: center;
+    justify-content: center;
 }
+
+/* Specific positioning for info-button inside figcaption */
+figcaption .info-button {
+    top: 5px;
+    right: 5px;
+    transform: none; /* No vertical transform needed for this one */
+}
+
 
 .info-button:hover {
     background-color: var(--dark-teal);
+}
+
+/* New: Analysis Button */
+.analysis-button {
+    background: var(--dark-teal);
+    color: var(--off-white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0px; /* Adjust margin to pull it closer to the h4 */
+    margin-bottom: 15px; /* Space before next element */
+    transition: background-color 0.2s ease;
+    display: block; /* Make it a block element to take full width or align */
+    width: fit-content; /* Adjust width to content */
+}
+
+.analysis-button:hover {
+    background-color: var(--gold);
 }
 
 
@@ -255,6 +288,7 @@ h3, h4 {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 20px;
+    text-align: center; /* Εξαίρεση: τα γεγονότα χρονογραμμής κεντραρισμένα */
 }
 
 .timeline-event {
@@ -273,6 +307,7 @@ h3, h4 {
 }
 
 .timeline-caption {
+    text-align: center; /* Εξαίρεση: οι λεζάντες κεντραρισμένες */
     font-style: italic;
     color: var(--text-color);
     margin-top: 10px;
@@ -306,7 +341,7 @@ h3, h4 {
     position: absolute;
     width: 100%;
     height: 100%;
-    text-align: center;
+    text-align: center; /* Εξαίρεση: το περιεχόμενο της κάρτας κεντραρισμένο */
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
@@ -350,6 +385,7 @@ h3, h4 {
     flex-grow: 1; /* Allow content to push button down */
     margin-bottom: 15px;
     overflow-y: auto; /* Enable scrolling if content is too long */
+    text-align: justify; /* Εξαίρεση: το κείμενο μέσα στην κάρτα justified */
 }
 
 .flip-button {
@@ -397,6 +433,7 @@ h3, h4 {
 .question-block p {
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: left; /* Εξαίρεση: οι ερωτήσεις quiz αριστερά */
 }
 
 .options button {
@@ -434,17 +471,27 @@ h3, h4 {
     margin-top: 10px;
     font-weight: bold;
     font-size: 0.9em;
+    text-align: left; /* Εξαίρεση: το feedback αριστερά */
 }
 
 
 footer {
-    text-align: center;
+    text-align: center; /* Εξαίρεση: το footer κεντραρισμένο */
     padding: 20px;
     margin-top: 30px;
     background: var(--dark-teal); /* Σκούρο τιρκουάζ */
     color: var(--off-white);
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
+
+.summary-footer-text {
+    text-align: center; /* Εξαίρεση: το footer μέσα στην περίληψη κεντραρισμένο */
+    font-size: 0.85em; /* Μικρότερο μέγεθος για το footer στην περίληψη */
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px dashed #ccc;
+}
+
 
 /* Basic Modal for map markers */
 .modal {
@@ -470,7 +517,16 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
     color: var(--text-color);
+    text-align: left; /* Εξαίρεση: το περιεχόμενο του modal αριστερά */
 }
+
+.modal-content p, .modal-content ul {
+    text-align: justify; /* Κείμενο μέσα στο modal justified */
+}
+.modal-content ul li {
+    text-align: justify; /* Κείμενο μέσα στο modal justified */
+}
+
 
 .close-button {
     color: #aaa;
@@ -484,4 +540,94 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        color: #000 !important; /* Ensure black text for print */
+    }
+
+    body > *:not(#summary-section) { /* Hide all direct children of body except summary-section */
+        display: none !important;
+        visibility: hidden !important; /* Ensure hiddenness */
+    }
+
+    #summary-section {
+        display: block !important;
+        visibility: visible !important;
+        position: static !important; /* Critical: Ensure it's in normal flow for printing */
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    #summary-section .accordion-header {
+        display: none !important; /* Hide the accordion header in print */
+    }
+
+    #summary-section .accordion-content {
+        max-height: none !important; /* Ensure content is fully expanded */
+        overflow: visible !important;
+        padding: 0 !important; /* Remove original padding */
+    }
+
+    #summary-content {
+        display: block !important; /* Ensure summary content is visible */
+        visibility: visible !important;
+        width: 100% !important; /* Ensure it takes full print width */
+        margin: 0 !important;
+        padding: 20mm !important; /* Add generous print margins */
+        box-sizing: border-box !important;
+        background-color: #fff !important; /* Ensure white background */
+    }
+
+    #summary-content #savePdfButton {
+        display: none !important; /* Hide the button in print */
+    }
+
+    /* Ensure text justification for print */
+    #summary-content p, 
+    #summary-content ul li {
+        text-align: justify !important;
+        font-size: 11pt !important; /* Adjust font size for print readability */
+        line-height: 1.4 !important; /* Adjust line height for print readability */
+        color: #000 !important;
+    }
+
+    #summary-content h4, #summary-content h3 {
+        text-align: left !important;
+        font-size: 14pt !important; /* Adjust heading size for print */
+        color: #000 !important; /* Ensure black color for print */
+        margin-top: 10pt !important;
+        margin-bottom: 8pt !important;
+        border-bottom: 1px solid #000 !important; /* Ensure border is visible */
+        padding-bottom: 3pt !important;
+    }
+
+    #summary-content strong {
+        color: #000 !important; /* Ensure black color for strong text */
+    }
+
+    #summary-content ul {
+        list-style-type: disc !important; /* Ensure bullets show up */
+        margin-left: 20mm !important; /* Indent lists */
+        padding-left: 0 !important;
+    }
+
+    #summary-content .summary-footer-text {
+        text-align: center !important;
+        font-size: 8pt !important; /* Smaller font for print footer */
+        color: #666 !important; /* Lighter color for print footer */
+        margin-top: 15mm !important;
+        border-top: 0.5px solid #ccc !important;
+        padding-top: 5mm !important;
+    }
 }
